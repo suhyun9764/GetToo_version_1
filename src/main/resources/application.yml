@@ -1,0 +1,36 @@
+spring:
+  config:
+    activate:
+      on-profile : local
+      datasource: "jdbc:h2:mem:library;MODE=MYSQL;NON_KEYWORDS=USER"
+      username : "sa"
+      password : ""
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile : dev
+  datasource:
+    url: "jdbc:mysql://localhost/woodong"
+    username : "root"
+    password : "1234"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    spring:
+      security:
+        user:
+          name: user
+          password: 1234
+
+    upload:
+    directory: C:/capstoneImage
+
+
+
+    thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width", initial-scale="1.0">
+<link rel="icon" href="/img/gettoo.ico">
+<link rel="stylesheet" href="/apply_form.css">
+<title>GET-TOO</title>
+</head>
+<body>
+<div th:if="${errorMessage}">
+    <script th:inline="javascript">
+        alert([[${errorMessage}]]);
+    </script>
+</div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="/"><img src="/img/nav_logo.png"/></a>
+            </div>
+            <div class="navbar_menu">
+                <ul class="main_menu">
+                    <li><a href="####">안녕하세요, <span style="font-weight: bold;"th:text="${client.name}"></span>님 ∨
+                        <ul class="sub_menu">
+                            <li><a href="clientInfo" style="font-size: 15px; margin-left: 5px;">프로필</a></li>
+                            <li><a href="loginGroup" style="font-size: 15px; margin-left: 5px;">동아리</a></li>
+                            <li><form action="/clientlogout" method="post"style="cursor: pointer;">
+                                <button type ="submit" style="border: 0;
+                                background-color: transparent; cursor: pointer; font-size: 15px;">로그아웃</button>
+                            </form></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <section id="s1">
+        <div class="profile">
+            <!-- <div class="profile_img">
+                <img src="./img/프로필사진.jpeg">
+            </div> -->
+            <div class="profile_name">
+                <h1><span th:text="${club.clubName}"></span> 동아리 지원</h1>
+            </div>
+                <div class="form_profile">
+                    <div class="profile_name"><h3> <span th:text="${client.name}"></span></h3></div>
+
+                    <div class="profile_info">
+                        <table class="profile_table">
+                            <tr>
+                                <th scope="row">학과</th>
+                                <td><span th:text="${client.department}"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">학번</th>
+                                <td><span th:text="${client.studentNumber}"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">생년월일</th>
+                                <td><span th:text="${client.age}"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">이메일</th>
+                                <td><span th:text="${client.email}"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+
+                <div class="form_content">
+                    <form action="/loginClient/applyClub" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="clientName" th:value="${client.id}" th:readonly="true" autocomplete="off" required>
+                        <input type="hidden" name="clubName" th:value="${club.clubName}" th:readonly="true" autocomplete="off" required>
+                    <div class="form_left">
+                        <div class="Q1_text"><p>지원 동기</p></div>
+                        <textarea name="motive" maxlength="300" id="txt"></textarea>
+                        
+                        <span id="counter">(0 / 최대 300자)</span>
+                    </div>
+                    <div class="form_right">
+                        <div class="Q2_text"><p>자기 소개</p></div>
+                        <textarea name="intro" maxlength="300" id="txt"></textarea>
+                        <span id="counter">(0 / 최대 300자)</span>
+                    </div>
+                </div>
+            <div class="profile_btn">
+                <button class="form_action" type="submit">지원하기</button>
+            </div>
+            </form>
+        </div>
+
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('#txt').keyup(function (e){
+        var content = $(this).val();
+        $('#counter').html("("+content.length+" / 최대 300자)");    //글자수 실시간 카운팅
+
+        if (content.length > 300){
+            alert("최대 300자까지 입력 가능합니다.");
+            $(this).val(content.substring(0, 300));
+            $('#counter').html("(300 / 최대 300자)");
+        }
+    });
+    </script>
+
+    
+</body>
+</html>

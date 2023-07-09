@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width", initial-scale="1.0">
+<link rel="icon" href="/img/gettoo.ico">
+<link rel="stylesheet" href="/group_form.css">
+<title>GET-TOO</title>
+</head>
+<body>
+<div th:if="${errorMessage}">
+    <script th:inline="javascript">
+        alert([[${errorMessage}]]);
+    </script>
+</div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="/"><img src="/img/nav_logo.png"/></a>
+            </div>
+            <div class="navbar_menu">
+                <ul class="main_menu">
+                    <li><a href="####">안녕하세요, <span style="font-weight: bold;"th:text="${name}"></span>님 ∨
+                        <ul class="sub_menu">
+                            <li><a href="clientInfo" style="font-size: 15px; margin-left: 5px;">프로필</a></li>
+                            <li><a href="loginGroup" style="font-size: 15px; margin-left: 5px;">동아리</a></li>
+                            <li><form action="/clientlogout" method="post"style="cursor: pointer;">
+                                <button type ="submit" style="border: 0;
+                                background-color: transparent; cursor: pointer; font-size: 15px;">로그아웃</button>
+                            </form></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <section id="s1">
+        <div class="profile">
+            <div class="profile_img">
+                <img src="/img/group/유심회.jpg">
+            </div>
+            <div class="profile_name">
+                <h1>유심회</h1>
+            </div>
+            
+            <div class="profile_info">
+                <div class="info_left">
+                    <table class="profile_table" style="text-align: left; width: 415px;">
+                        <tr>
+                            <th scope="row">모집인원</th>
+                        </tr>
+                        <tr>
+                            <td>00명</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">모집대상</th>
+                        </tr>
+                        <tr>
+                            <td>부처님을 사랑하는 누구나</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="info_right">
+                    <table class="profile_table" style="text-align: left; width: 395px;">
+                        <tr>
+                            <th scope="row">모집기간</th>
+                        </tr>
+                        <tr>
+                            <td>2023년 6월 20일까지</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">지원방법</th>
+                        </tr>
+                        <tr>
+                            <td>지원하기 버튼으로 지원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="info_center">
+                <table class="profile_table" style="text-align: left; width: 800px; margin-left: 45px;">
+                    <tr>
+                        <th scope="row">동아리소개</th>
+                    </tr>
+                    <tr>
+                        <td>부처님을 사랑하는 모임입니다.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">활동사진</th>
+                    </tr>
+                    <tr>
+                        <td><img src="/activityimg/유심회/유심회.jpg" style = "width: 250px; height: 200px;"></td>
+                        <td><img src="/activityimg/유심회/유심회1.jpg" style = "width: 250px; height: 200px;"></td>
+                        <td><img src="/activityimg/유심회/유심회2.jpg" style = "width: 250px; height: 200px;"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="/activityimg/유심회/유심회3.PNG" style="width: 250px; height: 200px;"></td>
+                        <td><img src="/img/준비중.jpg" style="width: 250px; height: 200px;"></td>
+                        <td><img src="/img/준비중.jpg" style="width: 250px; height: 200px;"></td>
+                    </tr>
+                </table>
+                
+            </div>
+            <div class="profile_btn">
+                <button class="form_action"><a href="/loginClient/goApplyForm?name=유심회">지원하기</a></button>
+                <button class="form_back"><a href="login_index.html">뒤로가기</a></button>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        function work() {
+            var result = confirm("정말로 탈퇴하시겠습니까?");
+            if(result == true) {
+                alert("탈퇴가 완료되었습니다.");
+                location.replace("####");
+            }
+            else {
+                alert("취소되었습니다.");
+            }
+        }
+    </script>
+
+    
+</body>
+</html>

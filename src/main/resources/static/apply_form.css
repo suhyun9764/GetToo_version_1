@@ -1,0 +1,225 @@
+* { margin: 0;}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(53, 53, 53);
+}
+
+.navbar_logo > a > img {
+    width: 150px;
+    margin-left: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 8px 12px;
+}
+
+li {
+    list-style: none;
+}
+
+.main_menu li {
+    float: left;
+    padding: 0 20px;
+    height: 36px;
+    line-height: 36px;
+    position: relative;
+}
+
+.sub_menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+}
+
+.sub_menu li {
+    width: 100px;
+    border: 1px solid rgb(162, 162, 162);
+    background-color: rgb(255, 255, 255);
+}
+
+.main_menu li:hover .sub_menu {
+    display: block;
+    
+}
+
+section {
+    width: 100%;
+    height: 1100px;
+}
+
+#s1 {
+    background-color: white;
+}
+
+.profile {
+    text-align : center;
+    width: 900px; 
+    margin: 0 auto; 
+    overflow: hidden;
+    padding: 50px;
+    background-color: #ffffff;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-top: 100px;
+}
+
+.form_profile {
+    width: 550px;
+    height: 300px;
+    text-align: center;
+    box-shadow: 1px 1px 2px 2px rgb(188, 188, 188);
+    border-radius: 10px;
+    margin-left: 180px;
+    margin-top: 80px;
+}
+
+.profile_img > img {
+    width: 200px;
+    margin-top: 30px;
+    border-radius: 80px;
+    -moz-border-radius: 80px;
+    -khtml-border-radius: 80px;
+    -webkit-border-radius: 80px;
+    margin-bottom: 20px;
+}
+
+.profile_name {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.profile_name > h3 {
+    padding-top: 30px;
+
+}
+
+.profile_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;;
+}
+
+table.profile_table {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: center;
+    line-height: 1.5;
+    border-top: none;
+  }
+  table.profile_table th {
+    width: 150px;
+    padding: 5px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }
+  table.profile_table td {
+    width: 150px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }
+
+.form_content {
+    margin-top: 70px;
+    width: 800px;
+    margin-left: 60px;
+    height: 300px;
+}
+
+
+.form_left {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+}
+
+.form_left > textarea {
+    width: 350px;
+    height: 150px;
+    border-radius: 20px;
+    resize: none;
+    margin-top: 10px;
+    padding: 20px
+}
+
+.form_left > span {
+    color:#aaa; 
+    float: right;
+    margin-right: 15px;
+}
+
+.form_right {
+    width: 50%;
+        float: right;
+        box-sizing: border-box;
+}
+
+.form_right > textarea {
+    width: 350px;
+    height: 150px;
+    border-radius: 20px;
+    resize: none;
+    margin-top: 10px;
+    padding: 20px
+}
+
+.form_right > span {
+    color:#aaa; 
+    float: right;
+    margin-right: 15px;
+}
+
+
+
+ .profile_btn > button {
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    margin-right: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.form_action {
+    background-color: mediumpurple;
+    border: none;
+    margin-top: 30px;
+    margin-left: 20px;
+    color: white;
+}
+
+.profile_btn {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.form_back {
+    cursor: pointer;
+    display: inline;
+    background-color: rgb(219, 219, 219);
+    border: none;
+    margin-top: 30px;
+    margin-left: 20px;
+    color: rgb(65, 65, 65);
+}

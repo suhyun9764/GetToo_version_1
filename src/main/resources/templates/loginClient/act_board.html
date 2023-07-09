@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>활동게시판</title>
+    <link rel="stylesheet" href="/css/css.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="/"><img src="/img/nav_logo.png"/></a>
+            </div>
+            <div class="navbar_menu">
+                <ul class="main_menu">
+                    <li><a href="clientInfo">안녕하세요, <span style="font-weight: bold;"th:text="${client.name}"></span>님 ∨
+                        <ul class="sub_menu">
+                            <li><a href="clientInfo" style="font-size: 15px; margin-left: 5px;">프로필</a></li>
+                            <li><a href="loginGroup" style="font-size: 15px; margin-left: 5px;">동아리</a></li>
+                            <li><form action="/clientlogout" method="post"style="cursor: pointer;">
+                                <button type ="submit" style="border: 0;
+                                background-color: transparent; cursor: pointer; font-size: 15px;">로그아웃</button>
+                            </form></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            </div>
+        </nav>
+    </header>
+    
+    <div class="board_wrap">        
+        <div class="back"><a href="group_home.html"><img src="/img/icon_back.png"></a></div>
+        <div class="board_title">
+            <strong>활동게시판</strong>
+            <p>동아리 활동 기록하기</p>
+        </div>
+            <div class="board_content">
+                <div class="act_card">
+                    <div class="card_img"><a href="act_view.html"><img src="/img/프로필사진.jpeg"></a></div>
+                    <div class="card_title"><a href="act_view.html"><h3>썬더일레븐 MT</h3></a></div>
+                    <div class="card_date"><a href="act_view.html">2023.06.11</a></div>
+                </div>
+                <div class="act_card" style="margin-left: 20px;">
+                    <div class="card_img"><a href="act_view.html"><img src="/img/프로필사진.jpeg"></a></div>
+                    <div class="card_title"><a href="act_view.html"><h3>썬더일레븐 MT</h3></a></div>
+                    <div class="card_date"><a href="act_view.html">2023.06.11</a></div>
+                </div>
+                <div class="act_card" style="margin-left: 20px;">
+                    <div class="card_img"><a href="act_view.html"><img src="/img/프로필사진.jpeg"></a></div>
+                    <div class="card_title"><a href="act_view.html"><h3>썬더일레븐 MT</h3></a></div>
+                    <div class="card_date"><a href="act_view.html">2023.06.11</a></div>
+                </div>
+                <div class="act_card" style="margin-left: 20px;">
+                    <div class="card_img"><a href="act_view.html"><img src="/img/프로필사진.jpeg"></a></div>
+                    <div class="card_title"><a href="act_view.html"><h3>썬더일레븐 MT</h3></a></div>
+                    <div class="card_date"><a href="act_view.html">2023.06.11</a></div>
+                </div>
+                <div class="act_card" style="margin-left: 20px;">
+                    <div class="card_img"><a href="act_view.html"><img src="/img/프로필사진.jpeg"></a></div>
+                    <div class="card_title"><a href="act_view.html"><h3>썬더일레븐 MT</h3></a></div>
+                    <div class="card_date"><a href="act_view.html">2023.06.11</a></div>
+                </div>
+            </div>
+            <div class="board_content">
+                <div class="act_card">
+                    <div class="card_img"><a href="act_view.html"><img src="/img/프로필사진.jpeg"></a></div>
+                    <div class="card_title"><a href="act_view.html"><h3>썬더일레븐 MT</h3></a></div>
+                    <div class="card_date"><a href="act_view.html">2023.06.11</a></div>
+                </div>
+                <div class="act_card" style="margin-left: 20px;">
+                    <div class="card_img"><a href="act_view.html"><img src="/img/프로필사진.jpeg"></a></div>
+                    <div class="card_title"><a href="act_view.html"><h3>썬더일레븐 MT</h3></a></div>
+                    <div class="card_date"><a href="act_view.html">2023.06.11</a></div>
+                </div>
+                <div class="act_card" style="margin-left: 20px;">
+                    <div class="card_img"><a href="act_view.html"><img src="/img/프로필사진.jpeg"></a></div>
+                    <div class="card_title"><a href="act_view.html"><h3>썬더일레븐 MT</h3></a></div>
+                    <div class="card_date"><a href="act_view.html">2023.06.11</a></div>
+                </div>
+            </div>
+            <div class="board_page">
+                <a href="#" class="bt first"></a>
+                <a href="#" class="bt prev"></a>
+                <a href="#" class="num on">1</a>
+                <a href="#" class="num">2</a>
+                <a href="#" class="num">3</a>
+                <a href="#" class="num">4</a>
+                <a href="#" class="num">5</a>
+                <a href="#" class="bt next">></a>
+                <a href="#" class="bt last">>></a>
+            </div>
+            <div class="bt_wrap">
+                <a href="act_write.html" class="on">등록</a>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html> 

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width", initial-scale="1.0">
+<link rel="icon" href="/img/gettoo.ico">
+<link rel="stylesheet" href="/login_group.css">
+<title>GET-TOO</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+ 
+ $(function(){
+  $('.tabcontent > div').hide();
+  $('.tabnav a').click(function () {
+    $('.tabcontent > div').hide().filter(this.hash).fadeIn();
+    $('.tabnav a').removeClass('active');
+    $(this).addClass('active');
+    return false;
+  }).filter(':eq(0)').click();
+  });
+        
+    </script>
+</head>
+<body>
+<div th:if="${errorMessage}">
+    <script th:inline="javascript">
+        alert([[${errorMessage}]]);
+    </script>
+</div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="/"><img src="/img/nav_logo.png"/></a>
+            </div>
+            <div class="navbar_menu">
+                <ul class="main_menu">
+                    <li><a href="clientInfo">안녕하세요, <span style="font-weight: bold;"th:text="${name}"></span>님 ∨
+                        <ul class="sub_menu">
+                            <li><a href="clientInfo" style="font-size: 15px; margin-left: 5px;">프로필</a></li>
+                            <li><a href="loginGroup" style="font-size: 15px; margin-left: 5px;">동아리</a></li>
+                            <li><form action="/clientlogout" method="post"style="cursor: pointer;">
+                                <button type ="submit" style="border: 0;
+                                background-color: transparent; cursor: pointer; font-size: 15px;">로그아웃</button>
+                            </form></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <section id="s1">
+        <div class="tab">
+            <ul class="tabnav">
+              <li><a href="#tab01">소속된 동아리(<span th:text="${clubs.size()}"></span>)</a></li>
+              <li><a href="#tab02">운영 중인 동아리(<span th:text="${leaderClubs.size()}"></span>)</a></li>
+              <li><a href="#tab03">승인 대기 동아리(<span th:text="${notauthclub.size()}"></span>)</a></li>
+            </ul>
+            <div class="tabcontent">
+                <div id="tab01">
+                    <div th:if="${clubs == null or clubs.isEmpty()}" class="no-clubs-message">
+                        <p>소속된 동아리가 없습니다</p>
+                    </div>
+                    <div th:if="${clubs != null}" th:each="club : ${clubs}" class="card">
+                        <a th:href="@{'/loginClient/goClubHome?name=' + ${club.clubName}}" class="card-link"><img th:src="@{'/img/group/' + ${club.clubName} + '.jpg'}" alt="프로필 사진" th:alt="${club.clubName}" class="profile-img"></a>
+                        <div class="card_body">
+                            <h3><span style="font-weight: bold;" th:text="${club.clubName}"></span></h3>
+                            <p>일반회원</p>
+                        </div>
+                        <div class="card_admin">
+                            <button class="button-style2"><a th:href="@{'/loginClient/outClub?clubName=' + ${club.clubName}}" class="card-link" style="color: white;">탈퇴</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab02">
+                    <div th:if="${leaderClubs == null or leaderClubs.isEmpty()}" class="no-clubs-message">
+                        <p>운영중인 동아리가 없습니다</p>
+                    </div>
+                    <div th:if="${leaderClubs != null}" th:each="leadclub : ${leaderClubs}" class="card">
+                        <img th:src="@{'/img/group/' + ${leadclub.clubName} + '.jpg'}" alt="프로필 사진" th:alt="${leadclub.clubName}" class="profile-img">
+                        <div class="card_body">
+                            <h3><span style="font-weight: bold;" th:text="${leadclub.clubName}"></span></h3>
+                            <p>동아리회장</p>
+                        </div>
+                        <div class="card_admin">
+                            <button class="button-style"><a th:href="@{'/loginClient/goClubJoinAuth?clubName=' + ${leadclub.clubName}}" class="card-link" style="color: white;">동아리 관리</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab03">
+                    <div th:if="${notauthclub == null or notauthclub.isEmpty()}" class="no-clubs-message">
+                        <p>가입 대기중인 동아리가 없습니다</p>
+                    </div>
+                    <div th:if="${notauthclub != null}" th:each="notjclub : ${notauthclub}" class="card">
+                        <img th:src="@{'/img/group/' + ${notjclub.clubName} + '.jpg'}" alt="프로필 사진" th:alt="${notjclub.clubName}" class="profile-img">
+
+                        <div class="card_body">
+                            <h3><span style="font-weight: bold;" th:text="${notjclub.clubName}"></span></h3>
+                            <p>일반회원</p>
+                        </div>
+                        <div class="card_admin">
+                            <button class="button-style2"><a th:href="@{'/loginClient/cancelApply?clubName=' + ${notjclub.clubName}}" class="card-link" style="color: white;">지원취소</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </section>
+    
+</body>
+</html>

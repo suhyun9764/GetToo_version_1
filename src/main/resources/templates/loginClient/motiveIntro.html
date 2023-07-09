@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Favicon -->
+<link rel="icon" href="img/core-img/favicon.ico">
+
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+
+<head>
+    <title>지원서</title>
+    <meta charset="UTF-8">
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="/motiveIntro.css">
+</head>
+
+
+<body>
+
+<div class="wrap">
+    <div class="logo"><a href="index.html"><img src="/img/logo_black.png" style="width: 300px;"></a></div>
+    <div class="contents">
+        <form action="goClubJoinAuth" method="GET" id="form__wrap">
+            <input type="hidden" name="clubName" th:value="${apply.clubName}" />
+            <ul class="terms__list">
+                <li class="terms__box">
+                    <div class="input__check">
+                        <label for="termsOfService"
+                        >지원서</label
+                        >
+                    </div>
+                    <div class="terms__content">
+                        <td><span style="font-weight: bold;"th:text="${apply.motive}"></span></td>
+                    </div>
+                </li>
+                <li class="terms__box">
+                    <div class="input__check">
+                        <label for="privacyPolicy"
+                        >지원내용</label
+                        >
+                    </div>
+                    <div class="terms__content">
+                        <td><span style="font-weight: bold;"th:text="${apply.intro}"></span></td>
+                    </div>
+                </li>
+            </ul>
+            <button type="submit" class="next-button" >확인</button>
+
+
+        </form>
+</body>
+</html>
+

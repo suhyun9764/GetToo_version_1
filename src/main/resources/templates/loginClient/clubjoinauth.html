@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>동아리 부원승인 페이지</title>
+  <link rel="stylesheet" href="/Memberok.css">
+</head>
+<body>
+  <h1><span style="font-weight: bold;"th:text="${club.clubName}"></span> 부원승인 페이지</h1>
+
+  <table>
+    <tr>
+      <th>신청자 이름</th>
+      <th>신청자 학번</th>
+      <th>신청자 이메일</th>
+      <th>신청자 학과</th>
+      <th>지원동기/자기소개</th>
+      <th>승인</th>
+      <th>거절</th>
+    </tr>
+    <tr th:each="client : ${clients}">
+      <td><span style="font-weight: bold;"th:text="${client.name}"></span></td>
+      <td><span style="font-weight: bold;"th:text="${client.studentNumber}"></span></td>
+      <td><span style="font-weight: bold;"th:text="${client.email}"></span></td>
+      <td><span style="font-weight: bold;"th:text="${client.department}"></span></td>
+      <td>
+        <form th:action="@{/loginClient/checkMotiveIntro}" method="get">
+          <input type="hidden" name="clientId" th:value="${client.id}">
+          <input th:type="hidden" name="clubName" th:value="${club.clubName}">
+          <button class="approval-button" type="submit">보기</button>
+        </form>
+      </td>
+
+      <td>
+
+
+          <form th:action="@{/loginClient/clubAuth}" method="post">
+            <input type="hidden" name="clientId" th:value="${client.id}">
+            <input th:type="hidden" name="clubName" th:value="${club.clubName}">
+            <button class="approval-button" type="submit">승인</button>
+          </form>
+      </td>
+      <td>
+          <form th:action="@{/loginClient/clubReject}" method="post">
+            <input type="hidden" name="clientId" th:value="${client.id}">
+            <input th:type="hidden" name="clubName" th:value="${club.clubName}">
+            <button class="approval-button reject-button" type="submit">거절</button>
+          </form>
+
+      </td>
+    </tr>
+    <!-- 동적으로 생성되는 부분은 서버에서 데이터를 가져와 반복문 등을 사용하여 동적으로 생성해야 합니다. -->
+  </table>
+</body>
+</html>
