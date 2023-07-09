@@ -26,7 +26,7 @@ spring:
           password: 1234
 
     upload:
-    directory: C:/capstoneImage
+    directory: /home/ec2-user/capstoneImage
 
 
 
