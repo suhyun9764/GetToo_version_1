@@ -313,7 +313,7 @@ public class clientController {
         }
         model.addAttribute("result",result);
 
-        return "loginclient/checkyourId";
+        return "loginClient/checkyourId";
     }
 
 
@@ -504,7 +504,7 @@ public class clientController {
     public String loginChangePassword(Model model,HttpServletRequest request,@RequestParam("newPassword") String password, @RequestParam("confirmPassword") String confirmPassword){
         if(!confirmPassword.equals(password)){
             model.addAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
-            return "loginClient/loginpwdchange.html";
+            return "loginClient/loginPwdChange.html";
 
         }
 
@@ -525,7 +525,7 @@ public class clientController {
 
     @GetMapping("/loginClient/loginPwdChange")
     public String loginPwdChange(){
-        return "loginClient/loginpwdchange";
+        return "loginPwdChange";
     }
     @PostMapping("/client/check-id")
     public ResponseEntity<String> checkId(@RequestParam("id") String id) {

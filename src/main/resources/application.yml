@@ -1,10 +1,13 @@
+
 spring:
   config:
     activate:
       on-profile : local
-      datasource: "jdbc:h2:mem:library;MODE=MYSQL;NON_KEYWORDS=USER"
-      username : "sa"
-      password : ""
+  datasource:
+    url: "jdbc:mysql://localhost/woodong"
+    username : "root"
+    password : "0902183qkqh@"
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 
 
