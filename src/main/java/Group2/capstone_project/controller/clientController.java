@@ -525,7 +525,7 @@ public class clientController {
     @GetMapping("/loginClient/loginPwdChange")
     public String loginPwdChange(){
         System.out.println("come2pwd");
-        return "/loginClient/loginPwdChange";
+        return "loginClient/loginPwdChange";
     }
     @PostMapping("/client/check-id")
     public ResponseEntity<String> checkId(@RequestParam("id") String id) {
