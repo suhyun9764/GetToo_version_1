@@ -492,15 +492,14 @@ public class clientController {
         Client client = (Client) session.getAttribute(SessionConst.LOGIN_CLIENT);
 
         boolean chk = clientserivce.checkPwd(client, password);
-        if(chk == true){
-            return "/loginClient/loginPwdChange";
-        }
-        else{
+        if(chk != true){
             return "redirect:/loginClient/changePwdPage2";
         }
+
+        return "redirect:/loginClient/loginPwdChange";
     }
 
-    @PostMapping("/clientlogin/loginChangePassword")
+    @PostMapping("/loginClient/loginChangePassword")
     public String loginChangePassword(Model model,HttpServletRequest request,@RequestParam("newPassword") String password, @RequestParam("confirmPassword") String confirmPassword){
         if(!confirmPassword.equals(password)){
             model.addAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
@@ -525,7 +524,8 @@ public class clientController {
 
     @GetMapping("/loginClient/loginPwdChange")
     public String loginPwdChange(){
-        return "loginPwdChange";
+        System.out.println("come2pwd");
+        return "/loginClient/loginPwdChange";
     }
     @PostMapping("/client/check-id")
     public ResponseEntity<String> checkId(@RequestParam("id") String id) {
